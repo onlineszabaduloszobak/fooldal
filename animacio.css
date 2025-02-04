@@ -1,0 +1,31 @@
+
+.tartalom {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(100px);
+    animation: feluszas 1.5s ease-out forwards;
+    text-align: center;
+    margin-top: 20px;
+    color: red;
+}
+p {
+    font-size: 50px;
+}
+
+@keyframes feluszas {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
