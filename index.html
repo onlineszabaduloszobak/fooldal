@@ -1,54 +1,76 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ONLINE SZABADULÓSZOBÁK</title>
     <link rel="stylesheet" href="menusor.css">
     <link rel="stylesheet" href="animacio.css">
+    <link rel="stylesheet" href="pushup.css">
     <style>
         .fejlec {
-        margin-top: 20px;
-        text-align: center;
+            margin-top: 20px;
+            text-align: center;
         }
-        
+
         .jog {
             color: red;
             text-align: center;
             font-size: 8px;
         }
-                  
-           @media (max-width: 600px) {
+
+        @media (max-width: 600px) {
             .fejlec img {
-                width: 90%; 
+                width: 90%;
             }
         }
-
-    
     </style>
 </head>
+
 <body>
+
+
+    <div id="overlay">
+        <a href="#">
+            <img src="pushup.jpg" alt="Üdvözlő Kép" width="50px" height="50px">
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(function () {
+                let overlay = document.getElementById("overlay");
+                if (overlay) {
+                    overlay.style.opacity = "0";
+                    setTimeout(() => overlay.style.display = "none", 1500);
+                }
+            }, 5000);
+        });
+
+    </script>
 
     <header class="header">
         <div class="logo menu"> <a href="index.html">ONLINE SZABADULÓSZOBÁK</a></div>
         <nav class="menu">
             <a href="jatekaink.html">JÁTÉKAINK</a>
             <a href="gyik.html">GYIK</a>
-            <a href="#">VÉLEMÉNYEK</a>
+            <a href="velemenyek.html">VÉLEMÉNYEK</a>
             <a href="rolunk.html">RÓLUNK</a>
-            
+
         </nav>
     </header>
     <a href="jatekaink.html">
-    <div class="fejlec"><img src="fejlec.jpg" alt="Fejléc" width="1000px" height="150px"></div>
+        <div class="fejlec"><img src="fejlec.jpg" alt="Fejléc" width="1000px" height="150px"></div>
     </a>
-<div class="tartalom">
-    ONLINE SZABADULÓSZOBÁK <br> <br>
-    JÁTSSZ <br> <br>
-    Online, Bármikor, Ingyen <br> <br>
-    TE KI TUDSZ SZABADULNI? TEDD PRÓBÁRA MAGAD! <br> <br>
+    <div class="tartalom">
+        ONLINE SZABADULÓSZOBÁK <br> <br>
+        JÁTSSZ <br> <br>
+        Online, Bármikor, Ingyen <br> <br>
+        TE KI TUDSZ SZABADULNI? TEDD PRÓBÁRA MAGAD! <br> <br>
 
-</div>
+    </div>
 
 </body>
+
 </html>

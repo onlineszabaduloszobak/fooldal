@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VÉLEMÉNYEK</title>
+    <link rel="stylesheet" href="menusor.css">
+    <link rel="stylesheet" href="animacio.css">
+    <style>
+        .fejlec {
+        margin-top: 20px;
+        text-align: center;
+        }
+        
+        .jog {
+            color: red;
+            text-align: center;
+            font-size: 2px;
+        }
+        .szöveg {
+            margin-top: 20px;
+            color: white;
+            text-align: center;
+            font-size: 0,5rem;
+        }
+        p {
+            font-size: large;
+        }
+        .box3 {
+            width: min(50vw, 300px);
+            height: min(50vh, 200px); 
+            background-color: white; 
+            border: 3px solid green; 
+            display: flex;
+            flex-direction: column; 
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: green;
+            text-align: center;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 15px; 
+            margin-top: 80px;
+            line-height: 1.6;
+            animation: feluszas 1.5s ease-out forwards;
+        }
+  
+        @media (max-width: 768px) {
+    .box3 {
+        width: 80vw; 
+        height: auto;
+        padding: 15px;
+        font-size: 1.2em;
+    }}
+
+    @keyframes feluszas {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }}
+
+           @media (max-width: 600px) {
+            .fejlec img {
+                width: 90%; 
+            }
+            .button {
+        font-size: 0.9em;
+        padding: 8px 15px;
+    }
+}
+        button {
+            background-color: brown;
+            color: white;
+            padding: 6px 12px;
+            font-size: 0.8em;
+        }
+
+    
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo menu"> <a href="index.html">ONLINE SZABADULÓSZOBÁK</a></div>
+        <nav class="menu">
+            <a href="jatekaink.html">JÁTÉKAINK</a>
+            <a href="gyik.html">GYIK</a>
+            <a href="velemenyek.html">VÉLEMÉNYEK</a>
+            <a href="rolunk.html">RÓLUNK</a>
+            
+        </nav>
+</header>
+        <div class="szöveg meret">
+            <b><p>VÉLEMÉNYEK</p></b>
+            <b><p>Olvasd el a véleményeket, vagy mond el a véleményedet!</p></b>
+        </div>
+
+        <div> &nbsp;&nbsp;
+            <a href="https://forms.gle/9UiVmGm7Kas2YcAe9"><button><b>AZ ELVESZETT ÖRÖKSÉG</b></button></a>
+        </div>
+
+      
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GYIK</title>
+    <link rel="stylesheet" href="menusor.css">
+    <link rel="stylesheet" href="jatekaink.css">
+    <link rel="stylesheet" href="box.css">
+    <style>
+        .box2 {
+            width: min(70vw, 900px);
+            height: min(80vh, 140px); 
+            background-color: white; 
+            border: 3px solid red; 
+            display: flex;
+            flex-direction: column; 
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: red;
+            text-align: center;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 15px; 
+            margin-top: 80px;
+            line-height: 1.6;
+            animation: feluszas 1.5s ease-out forwards;
+        }
+
+        .kapcsolat-elemek {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .kapcsolat-elemek img {
+            width: 40px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .kapcsolat-elemek p {
+            margin: 5px 0;
+        }
+
+        a {
+            color: red;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .gyik {
+            color: white;
+            text-align: center;
+            font-size: 30px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+    .box2 {
+        width: 80vw; 
+        height: auto;
+        padding: 15px;
+        font-size: 1.2em;
+    }}
+
+    @keyframes feluszas {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo menu"> <a href="index.html">ONLINE SZABADULÓSZOBÁK</a></div>
+        <nav class="menu">
+            <a href="jatekaink.html">JÁTÉKAINK</a>
+            <a href="gyik.html">GYIK</a>
+            <a href="velemenyek.html">VÉLEMÉNYEK</a>
+            <a href="rolunk.html">RÓLUNK</a>
+            
+        </nav>
+    </header>
+
+    <div class="gyik"><b>GYAKORI KÉRDÉSEK <br>GYIK</b></div>
+    <div class="box2">
+        <h4>MIRE VAN SZÜKSÉGEM A JÁTÉKHOZ?</h4>
+        <p>A játék indításához csak egy laptopra van szükséged. Sajnos androidos készülékkel (mobiltelefon)
+             nem játszhatóak a szabadulószobák. </p>
+    </div>
+    <div class="box2">
+        <h4>MENNYIBE KERÜLNEK A JÁTÉKOK?</h4>
+        <p>A játékok teljes mértékben ingyenesek. Ez egy hobbi projekt. Bármiféle adatok megadása nélkül indíthatóak a játékok a "Játékaink" menüpont alatt. </p>
+    </div>
+    <div class="box2">
+        <h4>MILYEN ADATOKRA VAN SZÜKSÉGEM A JÁTÉK INDÍTÁSÁHOZ?</h4>
+        <p>A honlapunkon teljes mértékben biztonságos módon lehet böngészni. Semmilyen adatok megadására nincs szükség. További részletek az Adatkezelési Tájékozatónkban a "Rólunk" menüpont alatt.
+            </p>
+    </div>
+    <div class="box2">
+        <h4>ELAKADTAM, HOL TUDOK SEGÍTSÉGET KÉRNI?</h4>
+        <p> Ha bármiféle problémád van, akkor tudsz írni Nekünk az onlineszabaduloszobak@gmail.com email címre, amire 48 órán belül megpróbálunk válaszolni.</p>
+    </div>
+
+    <div class="box2">
+        <h4>HÁNY ÉVES KORTÓL AJÁNLOTTAK A JÁTÉKOK?</h4>
+        <p> Változó, van olyan szabadulószobánk, amely bonyolultabb feladványokat tartalmaz, de ugyanakkor van olyan is,
+            amelyet a kisebbek is megértenek! A játék főoldalán minden esetben feltüntejük, hogy hány éves kortól ajánljuk az adott játékot.
+            </p>
+    </div>
+
+</body>
+</html>

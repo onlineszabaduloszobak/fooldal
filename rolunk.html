@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RÓLUNK</title>
+    <link rel="stylesheet" href="menusor.css">
+    <link rel="stylesheet" href="jatekaink.css">
+    <link rel="stylesheet" href="box.css">
+    <style>
+        .box2 {
+            width: min(70vw, 700px);
+            height: min(70vh, 400px); 
+            background-color: white; 
+            border: 3px solid red; 
+            display: flex;
+            flex-direction: column; 
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: red;
+            text-align: center;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 15px; 
+            margin-top: 80px;
+            line-height: 1.6;
+            animation: feluszas 1.5s ease-out forwards;
+        }
+
+        .kapcsolat-elemek {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .kapcsolat-elemek img {
+            width: 40px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .kapcsolat-elemek p {
+            margin: 5px 0;
+        }
+
+        a {
+            color: red;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            
+        }
+        .center {
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+    .box2 {
+        width: 80vw; 
+        height: auto;
+        padding: 15px;
+        font-size: 1.2em;
+    }}
+
+    @keyframes feluszas {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo menu"> <a href="index.html">ONLINE SZABADULÓSZOBÁK</a></div>
+        <nav class="menu">
+            <a href="jatekaink.html">JÁTÉKAINK</a>
+            <a href="gyik.html">GYIK</a>
+            <a href="velemenyek.html">VÉLEMÉNYEK</a>
+            <a href="rolunk.html">RÓLUNK</a>
+            
+        </nav>
+    </header>
+
+    <div class="box2">
+        <h2>RÓLUNK</h2>
+        <p>
+            Ez egy ingyenes, online szabadulószobákat tartalmazó weboldal. <br> A játékok célja, hogy különféle logikai feladványok 
+            megoldásával kiszabadulj a virtuális térből. Az oldal könnyen navigálható, és nincs 
+            szükség semmilyen speciális eszközre a játékhoz. <br><br> Nincs semmilyen időkorlát, így bárhol 
+            és bármikor élvezheted a kihívásokat. Az összes feladvány szórakoztató és izgalmas, 
+            így remek szórakozást biztosít mind kezdőknek, mind haladóknak. <br><br>Lépj be most, és próbáld ki, 
+            hogyan oldhatod meg a titkos kódokat!</p>
+    </div>
+
+    <div class="box2">
+        <h2>KAPCSOLAT</h2>
+        Az alábbi elérhetőségeken állunk rendelkezésre a nap 24 órájában!
+        
+        <div class="kapcsolat-elemek">
+            <img src="gmail.jpg" alt="Gmail">
+            <p>onlineszabaduloszobak@gmail.com</p>
+        </div>
+
+        <div class="kapcsolat-elemek">
+            <img src="facebook.jpg" alt="Facebook">
+            <p><a href="https://www.facebook.com/onlineszabaduloszobak" target="_blank">www.facebook.com/onlineszabaduloszobak</a></p>
+        </div>
+    </div>
+
+    <div class="center">
+    <a href="adatvedelem.html">ADATKEZELÉSI TÁJÉKOZATÓ</a>
+    </div>
+
+</body>
+</html>

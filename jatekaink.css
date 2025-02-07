@@ -1,0 +1,75 @@
+
+.box {
+    width: min(50vw, 750px); 
+    height: min(25vh, 250px);
+    background-color: #deb887; 
+    border: 3px solid #8b4513; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #8b4513;
+    text-align: center;
+    margin: 50px auto;
+    padding: 10px;
+    border-radius: 15px; 
+    animation: feluszas 1.5s ease-out forwards;
+}
+
+
+.badge {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: red;
+    color: white;
+    padding: 6px 12px;
+    font-size: 0.8em;
+    font-weight: bold;
+    border-bottom-right-radius: 8px;
+}
+
+
+.button {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: red;
+    color: white;
+    padding: 6px 12px;
+    font-size: 0.8em;
+    font-weight: bold;
+    border-top-left-radius: 8px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: darkred;
+}
+
+
+@media (max-width: 768px) {
+    .box {
+        width: 80vw; 
+        height: auto;
+        padding: 15px;
+        font-size: 1.2em;
+    }
+    .badge, .button {
+        font-size: 0.9em;
+        padding: 8px 15px;
+    }
+}
+
+@keyframes feluszas {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
