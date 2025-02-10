@@ -38,15 +38,41 @@
             margin-right: auto;
         }
 
+        .text2 {
+            text-align: center;
+            color: white;
+            font-size: 30px;
+            margin-top: 20px;
+        }
+
+        .text3 {
+            text-align: left;
+            margin-top: 20px;
+            color: white;
+            font-size: larger;
+            text-align: center;
+        }
+
         @keyframes feluszas {
             0% {
                 opacity: 0;
                 transform: translateY(100px);
             }
+
             100% {
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        .filter-container {
+            text-align: center;
+            margin: 20px;
+        }
+
+        #difficultyFilter {
+            padding: 8px;
+            font-size: 16px;
         }
     </style>
 
@@ -64,21 +90,31 @@
         </nav>
     </header>
 
+    <div class="text2">
+        <b>JÁTÉKAINK</b>
+    </div>
+    <div class="text3">
+        <b><i>Válogass kedvedre játékaink közül. <br>Játssz egy jót!</i></b>
+    </div>
+
     <div class="text">
         &nbsp;&nbsp;
         <b><i><u>Legújabb játékaink:</u></i></b>
     </div>
 
-    <div class="center">
-        <a href="#">
-            <img src="jatekok_elveszett.jpg" alt="AZ ELVESZETT ÖRÖKSÉG">
-        </a>
-    </div>
+    <!-- Játékok listája -->
+    <div class="games">
+        <div class="center">
+            <a href="#">
+                <img src="jatekok_elveszett.jpg" alt="AZ ELVESZETT ÖRÖKSÉG">
+            </a>
+        </div>
 
-    <div class="center">
-        <a href="#">
-            <img src="jatekok_hamarosan0307.jpg" alt="HAMAROSAN">
-        </a>
+        <div class="center">
+            <a href="#">
+                <img src="jatekok_hamarosan0307.jpg" alt="HAMAROSAN">
+            </a>
+        </div>
     </div>
 
 </body>
