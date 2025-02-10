@@ -12,6 +12,7 @@
         .fejlec {
             margin-top: 20px;
             text-align: center;
+            position: relative;
         }
 
         .jog {
@@ -20,35 +21,36 @@
             font-size: 8px;
         }
 
+        .pontok {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .pontok span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            background-color: gray;
+            border-radius: 50%;
+        }
+
+        .pontok .aktiv {
+            background-color: red;
+        }
+
         @media (max-width: 600px) {
             .fejlec img {
-                width: 90%;
+                width: 100%;
+                max-width: 1000px;
+                height: auto;
             }
+
         }
     </style>
 </head>
 
 <body>
-
-
-    <div id="overlay">
-        <a href="#">
-            <img src="pushup.jpg" alt="Üdvözlő Kép" width="50px" height="50px">
-        </a>
-    </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            setTimeout(function () {
-                let overlay = document.getElementById("overlay");
-                if (overlay) {
-                    overlay.style.opacity = "0";
-                    setTimeout(() => overlay.style.display = "none", 1500);
-                }
-            }, 5000);
-        });
-
-    </script>
 
     <header class="header">
         <div class="logo menu"> <a href="index.html">ONLINE SZABADULÓSZOBÁK</a></div>
@@ -57,20 +59,47 @@
             <a href="gyik.html">GYIK</a>
             <a href="velemenyek.html">VÉLEMÉNYEK</a>
             <a href="rolunk.html">RÓLUNK</a>
-
         </nav>
     </header>
-    <a href="jatekaink.html">
-        <div class="fejlec"><img src="fejlec.jpg" alt="Fejléc" width="1000px" height="150px"></div>
-    </a>
+
+    <div class="fejlec">
+        <a id="kepLink" href="#">
+            <img id="headerImage" src="fejlecfacebook.jpg" alt="Fejléc" width="1000px" height="150px">
+        </a>
+        <div class="pontok">
+            <span class="aktiv"></span>
+            <span> </span>
+
+
+        </div>
+    </div>
+
+    <script>
+        const kepek = [
+            { src: "fejlecfacebook.jpg", link: "#" },
+            { src: "fejlec.jpg", link: "jatekaink.html" },
+        ];
+        let index = 0;
+
+        function kepCsere() {
+            index = (index + 1) % kepek.length;
+            document.getElementById("headerImage").src = kepek[index].src;
+            document.getElementById("kepLink").href = kepek[index].link;
+
+
+            let pontok = document.querySelectorAll(".pontok span");
+            pontok.forEach((pont, i) => pont.classList.toggle("aktiv", i === index));
+        }
+
+        setInterval(kepCsere, 6000);
+    </script>
+
     <div class="tartalom">
         ONLINE SZABADULÓSZOBÁK <br> <br>
         JÁTSSZ <br> <br>
         Online, Bármikor, Ingyen <br> <br>
         TE KI TUDSZ SZABADULNI? TEDD PRÓBÁRA MAGAD! <br> <br>
-
     </div>
-
 </body>
 
 </html>

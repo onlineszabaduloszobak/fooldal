@@ -13,29 +13,34 @@
             text-align: center;
             animation: feluszas 1.5s ease-out forwards;
         }
+
         .text {
             text-align: left;
             margin-top: 20px;
             color: white;
             font-size: larger;
-    
+
         }
+
         @media (max-width: 600px) {
-            img {
-                width: 90%; 
+            .fejlec img {
+                width: 100%;
+                max-width: 1000px;
+                height: auto;
             }
         }
-        @keyframes feluszas {
-    0% {
-        opacity: 0;
-        transform: translateY(100px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
+        @keyframes feluszas {
+            0% {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 
 </head>
@@ -49,26 +54,26 @@
             <a href="gyik.html">GYIK</a>
             <a href="velemenyek.html">VÉLEMÉNYEK</a>
             <a href="rolunk.html">RÓLUNK</a>
-            
+
         </nav>
     </header>
 
-<div class="text"> &nbsp;&nbsp;
-    <b><i><u>Legújabb játékaink: <b></i></u>
-</div>
-    
-<div class="center">
-<a href="#">
-    <img src="jatekok_elveszett.jpg" alt="AZ ELVESZETT ÖRÖKSÉG" width="600px" height="300px">
-</a>
-</div>
-
-<div class="center">
-    <a href="#">
-        <img src="jatekok_hamarosan0307.jpg" alt="AZ ELVESZETT ÖRÖKSÉG" width="600px" height="300px">
-    </a>
+    <div class="text"> &nbsp;&nbsp;
+        <b><i><u>Legújabb játékaink: <b></i></u>
     </div>
-    
+
+    <div class="center">
+        <a href="#">
+            <img src="jatekok_elveszett.jpg" alt="AZ ELVESZETT ÖRÖKSÉG" width="600px" height="300px">
+        </a>
+    </div>
+
+    <div class="center">
+        <a href="#">
+            <img src="jatekok_hamarosan0307.jpg" alt="AZ ELVESZETT ÖRÖKSÉG" width="600px" height="300px">
+        </a>
+    </div>
+
 
 
 </body>
