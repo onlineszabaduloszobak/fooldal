@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,31 +9,34 @@
     <link rel="stylesheet" href="animacio.css">
     <style>
         .fejlec {
-        margin-top: 20px;
-        text-align: center;
+            margin-top: 20px;
+            text-align: center;
         }
-        
+
         .jog {
             color: red;
             text-align: center;
             font-size: 2px;
         }
+
         .szöveg {
             margin-top: 20px;
             color: white;
             text-align: center;
-            font-size: 0,5rem;
+            font-size: 0, 5rem;
         }
+
         p {
             font-size: large;
         }
+
         .box3 {
             width: min(50vw, 300px);
-            height: min(50vh, 200px); 
-            background-color: white; 
-            border: 3px solid green; 
+            height: min(50vh, 200px);
+            background-color: white;
+            border: 3px solid green;
             display: flex;
-            flex-direction: column; 
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             position: relative;
@@ -42,52 +46,171 @@
             text-align: center;
             margin: 50px auto;
             padding: 20px;
-            border-radius: 15px; 
+            border-radius: 15px;
             margin-top: 80px;
             line-height: 1.6;
             animation: feluszas 1.5s ease-out forwards;
         }
-  
+
         @media (max-width: 768px) {
-    .box3 {
-        width: 80vw; 
-        height: auto;
-        padding: 15px;
-        font-size: 1.2em;
-    }}
-
-    @keyframes feluszas {
-    0% {
-        opacity: 0;
-        transform: translateY(100px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }}
-
-           @media (max-width: 600px) {
-            .fejlec img {
-                width: 90%; 
+            .box3 {
+                width: 80vw;
+                height: auto;
+                padding: 15px;
+                font-size: 1.2em;
             }
+        }
+
+        @keyframes feluszas {
+            0% {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .fejlec img {
+                width: 90%;
+            }
+
             .button {
-        font-size: 0.9em;
-        padding: 8px 15px;
-    }
-}
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
+        }
+
         button {
             background-color: brown;
             color: white;
             padding: 6px 12px;
             font-size: 0.8em;
         }
+
         .text {
             text-align: center;
         }
 
-    
+        .timeline {
+            position: relative;
+            padding: 10px 0;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .timeline-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .timeline-content {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .timeline-content.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-content.left {
+            margin-right: auto;
+        }
+
+        .timeline-content.right {
+            margin-left: auto;
+        }
+
+        .timeline-footer {
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #555;
+            background: #ecf0f1;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background-color: #3498db;
+            z-index: -1;
+        }
+
+        .date {
+            font-size: 14px;
+            font-weight: bold;
+            color: #555;
+            background: #ecf0f1;
+            padding: 5px 10px;
+            border-radius: 5px;
+            width: fit-content;
+            text-align: center;
+        }
+
+        .date2 {
+            text-align: center;
+            color: white;
+            font-size: 40px;
+            margin-top: 50px;
+        }
+
+        /* New styles for the filter section */
+        .szuro {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .szuro label,
+        .szuro select,
+        .szuro button {
+            font-size: 1em;
+            padding: 6px 12px;
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .szuro select {
+            min-width: 160px;
+        }
+
+        button {
+            background-color: brown;
+            color: black;
+            padding: 6px 12px;
+            font-size: 0.8em;
+        }
+      
+
     </style>
 </head>
+
 <body>
 
     <header class="header">
@@ -97,17 +220,135 @@
             <a href="gyik.html">GYIK</a>
             <a href="velemenyek.html">VÉLEMÉNYEK</a>
             <a href="rolunk.html">RÓLUNK</a>
-            
         </nav>
-</header>
-        <div class="szöveg meret">
-            <b><p>VÉLEMÉNYEK</p></b>
-            <b><p>Olvasd el a véleményeket, vagy mond el a véleményedet!</p></b>
+    </header>
+
+    <div class="text">
+        <div class="szuro">
+            
+            <select id="jatekSzuro">
+                <option value="all">Összes</option>
+                <option value="AZ ELVESZETT ÖRÖKSÉG">AZ ELVESZETT ÖRÖKSÉG</option>
+                
+            </select>
+            
+            <select id="evSzuro">
+                <option value="all">Összes</option>
+                <option value="2025">2025</option>
+            </select> <br><br>
+            
+            <button onclick="szures()">Szűrés</button>
+        </div>
+    </div>
+
+    <div class="szöveg meret">
+        <b>
+            <p>VÉLEMÉNYEK</p>
+        </b>
+        <b>
+            <p>Olvasd el a véleményeket, vagy mond el a véleményedet!</p>
+        </b>
+    </div>
+
+    <div class="text"> &nbsp;&nbsp;
+        <a href="https://forms.gle/9UiVmGm7Kas2YcAe9"><button><b>AZ ELVESZETT ÖRÖKSÉG - MONDD EL
+                    VÉLEMÉNYED!</b></button></a>
+    </div>
+
+    <script>
+        function szures() {
+            let jatekSzuro = document.getElementById("jatekSzuro").value;
+            let evSzuro = document.getElementById("evSzuro").value;
+            let timelineItems = document.querySelectorAll(".timeline-item");
+
+            timelineItems.forEach(item => {
+                let jatekNev = item.querySelector("h4").innerText;
+                let ev = item.querySelector(".date").innerText.split(".")[0];
+
+                let jatekEgyezik = (jatekSzuro === "all" || jatekNev === jatekSzuro);
+                let evEgyezik = (evSzuro === "all" || ev === evSzuro);
+
+                if (jatekEgyezik && evEgyezik) {
+                    item.style.display = "flex";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        }
+    </script>
+
+    <div class="date2"> <b> <i>2025</b></i></div>
+
+    <div class="timeline">
+        <div class="timeline-item" data-jatek="Minecraft">
+            <div class="timeline-content left">
+                <h4>AZ ELVESZETT ÖRÖKSÉG</h4>
+                <h3>Kovács Péter</h3>
+                <p>"Nagyon kreatív játék, imádom a lehetőségeket!"</p>
+                <div class="timeline-footer">
+                    <span class="date">2024. február 5.</span>
+                </div>
+            </div>
+            <div class="timeline-line"></div>
         </div>
 
-        <div class="text"> &nbsp;&nbsp;
-            <a href="https://forms.gle/9UiVmGm7Kas2YcAe9"><button><b>AZ ELVESZETT ÖRÖKSÉG - MONDD EL VÉLEMÉNYED!</b></button></a>
+        <div class="timeline-item" data-jatek="GTA V">
+            <div class="timeline-content right">
+                <h4>GTA V</h4>
+                <h3>Nagy Anna</h3>
+                <p>"A nyílt világ és a sztori remek élményt ad!"</p>
+                <div class="timeline-footer">
+                    <span class="date">2024. február 7.</span>
+                </div>
+            </div>
+            <div class="timeline-line"></div>
         </div>
+    </div>
+
+    <div class="timeline">
+        <div class="timeline-item" data-jatek="Minecraft">
+            <div class="timeline-content left">
+                <h4>AZ ELVESZETT ÖRÖKSÉG</h4>
+                <h3>Kovács Péter</h3>
+                <p>"Nagyon kreatív játék, imádom a lehetőségeket!"</p>
+                <div class="timeline-footer">
+                    <span class="date">2024. február 5.</span>
+                </div>
+            </div>
+            <div class="timeline-line"></div>
+        </div>
+
+        <div class="timeline-item" data-jatek="GTA V">
+            <div class="timeline-content right">
+                <h4>GTA V</h4>
+                <h3>Nagy Anna</h3>
+                <p>"A nyílt világ és a sztori remek élményt ad!"</p>
+                <div class="timeline-footer">
+                    <span class="date">2024. február 7.</span>
+                </div>
+            </div>
+            <div class="timeline-line"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const timelineItems = document.querySelectorAll(".timeline-content");
+    
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                    }
+                });
+            }, { threshold: 1.0 });
+    
+            timelineItems.forEach(item => {
+                observer.observe(item);
+            });
+        });
+    </script>
 
 </body>
+
 </html>
