@@ -118,17 +118,9 @@
             width: 45%;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             position: relative;
-        }
-
-        .timeline-content {
             opacity: 0;
             transform: translateY(50px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .timeline-content.show {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         .timeline-content.left {
@@ -184,6 +176,7 @@
             gap: 15px;
             justify-content: center;
             margin: 20px 0;
+            flex-wrap: wrap;
         }
 
         .szuro label,
@@ -206,8 +199,25 @@
             padding: 6px 12px;
             font-size: 0.8em;
         }
-      
 
+        @media (max-width: 600px) {
+            .szuro {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .szuro select,
+            .szuro button {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+
+        /* New animation class for timeline-content */
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 
@@ -225,18 +235,16 @@
 
     <div class="text">
         <div class="szuro">
-            
             <select id="jatekSzuro">
                 <option value="all">Összes</option>
                 <option value="AZ ELVESZETT ÖRÖKSÉG">AZ ELVESZETT ÖRÖKSÉG</option>
-                
             </select>
-            
+
             <select id="evSzuro">
                 <option value="all">Összes</option>
                 <option value="2025">2025</option>
             </select> <br><br>
-            
+
             <button onclick="szures()">Szűrés</button>
         </div>
     </div>
@@ -275,6 +283,20 @@
                 }
             });
         }
+
+        // Vélemények animáció görgetéskor
+        window.addEventListener("scroll", () => {
+            const timelineItems = document.querySelectorAll(".timeline-item");
+            timelineItems.forEach(item => {
+                const rect = item.getBoundingClientRect();
+                const isInViewport = rect.top <= window.innerHeight && rect.bottom >= 0;
+                const content = item.querySelector(".timeline-content");
+
+                if (isInViewport) {
+                    content.classList.add("show");
+                }
+            });
+        });
     </script>
 
     <div class="date2"> <b> <i>2025</b></i></div>
@@ -295,60 +317,27 @@
         <div class="timeline-item" data-jatek="GTA V">
             <div class="timeline-content right">
                 <h4>GTA V</h4>
-                <h3>Nagy Anna</h3>
-                <p>"A nyílt világ és a sztori remek élményt ad!"</p>
+                <h3>Szabó László</h3>
+                <p>"Nagyon izgalmas és szórakoztató volt! Bárcsak több ilyen játék lenne!"</p>
                 <div class="timeline-footer">
-                    <span class="date">2024. február 7.</span>
+                    <span class="date">2024. február 6.</span>
                 </div>
             </div>
             <div class="timeline-line"></div>
         </div>
-    </div>
 
-    <div class="timeline">
-        <div class="timeline-item" data-jatek="Minecraft">
+        <div class="timeline-item" data-jatek="Játék neve">
             <div class="timeline-content left">
-                <h4>AZ ELVESZETT ÖRÖKSÉG</h4>
+                <h4>JÁTÉK NEVE</h4>
                 <h3>Kovács Péter</h3>
                 <p>"Nagyon kreatív játék, imádom a lehetőségeket!"</p>
                 <div class="timeline-footer">
-                    <span class="date">2024. február 5.</span>
-                </div>
-            </div>
-            <div class="timeline-line"></div>
-        </div>
-
-        <div class="timeline-item" data-jatek="GTA V">
-            <div class="timeline-content right">
-                <h4>GTA V</h4>
-                <h3>Nagy Anna</h3>
-                <p>"A nyílt világ és a sztori remek élményt ad!"</p>
-                <div class="timeline-footer">
-                    <span class="date">2024. február 7.</span>
+                    <span class="date">2025. február 10.</span>
                 </div>
             </div>
             <div class="timeline-line"></div>
         </div>
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const timelineItems = document.querySelectorAll(".timeline-content");
-    
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("show");
-                    }
-                });
-            }, { threshold: 1.0 });
-    
-            timelineItems.forEach(item => {
-                observer.observe(item);
-            });
-        });
-    </script>
-
 </body>
 
 </html>
