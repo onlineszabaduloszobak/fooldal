@@ -213,10 +213,27 @@
             }
         }
 
-        /* New animation class for timeline-content */
+
         .show {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        .stars,
+        .empty-stars {
+            font-size: 18px;
+            margin-right: 2px;
+            
+        }
+
+        .stars {
+            color: #FFD700;
+            
+        }
+
+        .empty-stars {
+            color: #D3D3D3;
+            
         }
     </style>
 </head>
@@ -284,7 +301,7 @@
             });
         }
 
-        // Vélemények animáció görgetéskor
+        
         window.addEventListener("scroll", () => {
             const timelineItems = document.querySelectorAll(".timeline-item");
             timelineItems.forEach(item => {
@@ -304,11 +321,11 @@
     <div class="timeline">
         <div class="timeline-item" data-jatek="Minecraft">
             <div class="timeline-content left">
+                <span class="stars">⭐⭐⭐⭐</span><span class="empty-stars">☆</span>
                 <h4>AZ ELVESZETT ÖRÖKSÉG</h4>
-                <h3>Kovács Péter</h3>
-                <p>"Nagyon kreatív játék, imádom a lehetőségeket!"</p>
+                <p>"A játék jó volt. Elgondolkodtató logikai feladványokkal teli!"</p>
                 <div class="timeline-footer">
-                    <span class="date">2024. február 5.</span>
+                    <span class="date">2025. február 14.</span>
                 </div>
             </div>
             <div class="timeline-line"></div>
@@ -316,27 +333,15 @@
 
         <div class="timeline-item" data-jatek="GTA V">
             <div class="timeline-content right">
-                <h4>GTA V</h4>
-                <h3>Szabó László</h3>
-                <p>"Nagyon izgalmas és szórakoztató volt! Bárcsak több ilyen játék lenne!"</p>
+                <h4>AZ ELVESZETT ÖRÖKSÉG</h4>
+                <p>"A játék jó volt. Elgondolkodtató logikai feladványokkal teli!"</p>
                 <div class="timeline-footer">
-                    <span class="date">2024. február 6.</span>
+                    <span class="date">2025. február 14.</span>
                 </div>
             </div>
             <div class="timeline-line"></div>
         </div>
 
-        <div class="timeline-item" data-jatek="Játék neve">
-            <div class="timeline-content left">
-                <h4>JÁTÉK NEVE</h4>
-                <h3>Kovács Péter</h3>
-                <p>"Nagyon kreatív játék, imádom a lehetőségeket!"</p>
-                <div class="timeline-footer">
-                    <span class="date">2025. február 10.</span>
-                </div>
-            </div>
-            <div class="timeline-line"></div>
-        </div>
     </div>
 </body>
 
