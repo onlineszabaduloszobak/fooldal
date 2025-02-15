@@ -99,37 +99,7 @@
         </nav>
     </header>
 
-    <div class="visszaszamlalo-doboz">
-        <div class="visszaszamlalo-szoveg">Új játék hamarosan...</div>
-        <div class="elvalaszto"></div>
-        <div class="visszaszamlalo" id="visszaszamlalo"></div>
-    </div>
-
-    <script>
-        function frissitVisszaszamlalo() {
-            const celDatum = new Date("March 7, 2025 00:00:00").getTime();
-            const most = new Date().getTime();
-            const kulonbseg = celDatum - most;
-            
-            const napok = Math.floor(kulonbseg / (1000 * 60 * 60 * 24));
-            const orak = Math.floor((kulonbseg % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const percek = Math.floor((kulonbseg % (1000 * 60 * 60)) / (1000 * 60));
-            const masodpercek = Math.floor((kulonbseg % (1000 * 60)) / 1000);
-    
-            document.getElementById("visszaszamlalo").innerHTML = 
-                napok + " nap " + orak + " óra " + percek + " perc " + masodpercek + " mp";
-    
-            if (kulonbseg < 0) {
-                document.getElementById("visszaszamlalo").innerHTML = "Elérhető!";
-            }
-        }
-    
-        frissitVisszaszamlalo();
-        setInterval(frissitVisszaszamlalo, 1000);
-    </script>
-    
-    
-
+  
     <div class="fejlec">
         <a id="kepLink" href="#">
             <img id="headerImage" src="fejlecfacebook.jpg" alt="Fejléc" width="1000px" height="150px">
