@@ -39,6 +39,32 @@
             background-color: red;
         }
 
+        .visszaszamlalo-doboz {
+            width: 100%;
+            max-width: 700px;
+            height: 10px;
+            background-color: black;
+            border: 4px solid red;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            margin: 20px auto;
+        }
+
+        .elvalaszto {
+            width: 2px;
+            height: 80%;
+            background-color: red;
+        }
+
+        .visszaszamlalo-szoveg, .visszaszamlalo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
         @media (max-width: 600px) {
             .fejlec img {
                 width: 100%;
@@ -46,12 +72,23 @@
                 height: auto;
             }
 
+            .visszaszamlalo-doboz {
+                flex-direction: column;
+                height: auto;
+                text-align: center;
+            }
+
+            .elvalaszto {
+                width: 80%;
+                height: 2px;
+                margin: 10px 0;
+            }
         }
     </style>
 </head>
 
 <body>
-
+    
     <header class="header">
         <div class="logo menu"> <a href="index.html">ONLINE SZABADULÓSZOBÁK</a></div>
         <nav class="menu">
@@ -62,6 +99,37 @@
         </nav>
     </header>
 
+    <div class="visszaszamlalo-doboz">
+        <div class="visszaszamlalo-szoveg">Új játék hamarosan...  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- </div>
+        <div class="elvalaszto"></div>
+        <div class="visszaszamlalo" id="visszaszamlalo"></div>
+    </div>
+
+    <script>
+        function frissitVisszaszamlalo() {
+            const celDatum = new Date("March 7, 2025 00:00:00").getTime();
+            const most = new Date().getTime();
+            const kulonbseg = celDatum - most;
+            
+            const napok = Math.floor(kulonbseg / (1000 * 60 * 60 * 24));
+            const orak = Math.floor((kulonbseg % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const percek = Math.floor((kulonbseg % (1000 * 60 * 60)) / (1000 * 60));
+            const masodpercek = Math.floor((kulonbseg % (1000 * 60)) / 1000);
+    
+            document.getElementById("visszaszamlalo").innerHTML = 
+                napok + " nap " + orak + " óra " + percek + " perc " + masodpercek + " mp";
+    
+            if (kulonbseg < 0) {
+                document.getElementById("visszaszamlalo").innerHTML = "Elérhető!";
+            }
+        }
+    
+        frissitVisszaszamlalo();
+        setInterval(frissitVisszaszamlalo, 1000);
+    </script>
+    
+    
+
     <div class="fejlec">
         <a id="kepLink" href="#">
             <img id="headerImage" src="fejlecfacebook.jpg" alt="Fejléc" width="1000px" height="150px">
@@ -69,9 +137,6 @@
         <div class="pontok">
             <span class="aktiv"></span>
             <span> </span>
-            
-
-
         </div>
     </div>
 
@@ -79,7 +144,6 @@
         const kepek = [
             { src: "fejlecfacebook.jpg", link: "#" },
             { src: "fejlec.jpg", link: "jatekaink.html" },
-            
         ];
         let index = 0;
 
@@ -87,7 +151,6 @@
             index = (index + 1) % kepek.length;
             document.getElementById("headerImage").src = kepek[index].src;
             document.getElementById("kepLink").href = kepek[index].link;
-
 
             let pontok = document.querySelectorAll(".pontok span");
             pontok.forEach((pont, i) => pont.classList.toggle("aktiv", i === index));
@@ -97,13 +160,12 @@
     </script>
 
     <div class="tartalom">
-        ONLINE SZABADULÓSZOBÁK <br> <br>
-        JÁTSSZ <br> <br>
-        Online, Bármikor, Ingyen <br> <br>
-        TE KI TUDSZ SZABADULNI? TEDD PRÓBÁRA MAGAD! <br> <br>
+        ONLINE SZABADULÓSZOBÁK <br><br>
+        JÁTSSZ <br><br>
+        Online, Bármikor, Ingyen <br><br>
+        TE KI TUDSZ SZABADULNI? TEDD PRÓBÁRA MAGAD! <br><br>
     </div>
 
-    
 </body>
 
 </html>
