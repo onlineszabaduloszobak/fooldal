@@ -39,56 +39,17 @@
             background-color: red;
         }
 
-        .visszaszamlalo-doboz {
-            width: 100%;
-            max-width: 700px;
-            height: 10px;
-            background-color: black;
-            border: 4px solid red;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            box-sizing: border-box;
-            margin: 20px auto;
-        }
-
-        .elvalaszto {
-            width: 2px;
-            height: 80%;
-            background-color: red;
-        }
-
-        .visszaszamlalo-szoveg, .visszaszamlalo {
-            font-size: 18px;
+        #uzenet {
+            font-size: 12px;
+            color: red;
             font-weight: bold;
-        }
-
-        @media (max-width: 600px) {
-            .fejlec img {
-                width: 100%;
-                max-width: 1000px;
-                height: auto;
-            }
-
-            .visszaszamlalo-doboz {
-                flex-direction: column;
-                height: auto;
-                text-align: center;
-            }
-
-            .elvalaszto {
-                width: 80%;
-                height: 2px;
-                margin: 10px 0;
-            }
+            text-align: center;
+            margin-top: 20px;
         }
     </style>
 </head>
 
 <body>
-    
     <header class="header">
         <div class="logo menu"> <a href="index.html">ONLINE SZABADULÓSZOBÁK</a></div>
         <nav class="menu">
@@ -99,19 +60,58 @@
         </nav>
     </header>
 
-  
+    <div id="uzenet"></div>
+
+    <script>
+        function ellenorizIdot() {
+            let most = new Date();
+            let ora = most.getHours();
+            let uzenet = "";
+
+            if (ora >= 5 && ora < 10) {
+                uzenet = "Jó reggelt! Játékkal, jobban indul a nap! ☕";
+            } else if (ora >= 10 && ora < 13) {
+                uzenet = "Szép délelőttöt! Kapcsolj ki egy picit! 🌞";
+            } else if (ora >= 13 && ora < 17) {
+                uzenet = "Szép délutánt! Délutáni szundi helyett inkább játssz egy jót! 🥂";
+            } else if (ora >= 17 && ora < 23) {
+                uzenet = "Szép estét! Jó hosszú volt ez a nap is, vezesd le egy játékkal! 🌙";
+            } else {
+                uzenet = "Juj, még fent vagy? Most már irány az ágy! 😴";
+            }
+
+            let uzenetElem = document.getElementById("uzenet");
+            if (uzenet) {
+                uzenetElem.textContent = uzenet;
+                uzenetElem.style.display = "block";
+            } else {
+                uzenetElem.style.display = "none";
+            }
+        }
+
+        // Ellenőrzés betöltéskor
+        ellenorizIdot();
+
+        // Időszakos ellenőrzés 1 percenként
+        setInterval(ellenorizIdot, 60000);
+    </script>
+
+
+
     <div class="fejlec">
         <a id="kepLink" href="#">
-            <img id="headerImage" src="fejlecfacebook.jpg" alt="Fejléc" width="1000px" height="150px">
+            <img id="headerImage" src="fejlecfej.jpg" alt="Fejléc" width="1000px" height="150px">
         </a>
         <div class="pontok">
             <span class="aktiv"></span>
+            <span> </span>
             <span> </span>
         </div>
     </div>
 
     <script>
         const kepek = [
+            { src: "fejlecfej.jpg", link: "#" },
             { src: "fejlecfacebook.jpg", link: "#" },
             { src: "fejlec.jpg", link: "jatekaink.html" },
         ];
@@ -135,7 +135,6 @@
         Online, Bármikor, Ingyen <br><br>
         TE KI TUDSZ SZABADULNI? TEDD PRÓBÁRA MAGAD! <br><br>
     </div>
-
 </body>
 
 </html>
