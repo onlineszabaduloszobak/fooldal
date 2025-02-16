@@ -15,6 +15,12 @@
             position: relative;
         }
 
+        .fejlec img {
+            width: 100%;
+            height: auto;
+            max-width: 1000px;
+        }
+
         .jog {
             color: red;
             text-align: center;
@@ -71,41 +77,30 @@
             if (ora >= 5 && ora < 10) {
                 uzenet = "Jó reggelt! Játékkal, jobban indul a nap! ☕";
             } else if (ora >= 10 && ora < 13) {
-                uzenet = "Szép délelőttöt! Kapcsolj ki egy picit! 🌞";
-            } else if (ora >= 13 && ora < 17) {
+                uzenet = "Szép délelőttöt! Játssz egy menetet! Kapcsolj ki egy picit! 🌞";
+            } else if (ora >= 13 && ora < 18) {
                 uzenet = "Szép délutánt! Délutáni szundi helyett inkább játssz egy jót! 🥂";
-            } else if (ora >= 17 && ora < 23) {
-                uzenet = "Szép estét! Jó hosszú volt ez a nap is, vezesd le egy játékkal! 🌙";
+            } else if (ora >= 18 && ora < 23) {
+                uzenet = "Szép estét! Jó hosszú volt ez a nap is, vezesd le a fáradságot egy játékkal! 🌙";
             } else {
-                uzenet = "Juj, még fent vagy? Most már irány az ágy! 😴";
+                uzenet = "Jó éjszakát! Most már irány az ágy! 😴";
             }
 
-            let uzenetElem = document.getElementById("uzenet");
-            if (uzenet) {
-                uzenetElem.textContent = uzenet;
-                uzenetElem.style.display = "block";
-            } else {
-                uzenetElem.style.display = "none";
-            }
+            document.getElementById("uzenet").textContent = uzenet;
         }
-
-        // Ellenőrzés betöltéskor
+        
         ellenorizIdot();
-
-        // Időszakos ellenőrzés 1 percenként
         setInterval(ellenorizIdot, 60000);
     </script>
 
-
-
     <div class="fejlec">
         <a id="kepLink" href="#">
-            <img id="headerImage" src="fejlecfej.jpg" alt="Fejléc" width="1000px" height="150px">
+            <img id="headerImage" src="fejlecfej.jpg" alt="Fejléc">
         </a>
         <div class="pontok">
             <span class="aktiv"></span>
-            <span> </span>
-            <span> </span>
+            <span></span>
+            <span></span>
         </div>
     </div>
 
