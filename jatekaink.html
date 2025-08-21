@@ -7,81 +7,126 @@
     <title>JÁTÉKAINK</title>
     <link rel="stylesheet" href="menusor.css">
     <link rel="stylesheet" href="jatekaink.css">
-    <style>
-        .fejlec {
-            margin-top: 20px;
-            text-align: center;
-            position: relative;
-        }
+    <link rel="stylesheet" href="hatter.css">
+<style>  
+body {
+    background-color: #111;
+    font-family: Arial, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
 
-        .center {
-            margin-top: 30px;
-            text-align: center;
-            animation: feluszas 1.5s ease-out forwards;
-        }
+/* Fejléc kép */
+.fejlec {
+    margin-top: 20px;
+    text-align: center;
+    position: relative;
+}
 
-        .text {
-            text-align: left;
-            margin-top: 20px;
-            color: white;
-            font-size: larger;
-        }
+.fejlec img {
+    width: 60%;
+    max-width: 600px;
+    height: auto;
+}
 
-        @media (max-width: 600px) {
-            .fejlec img {
-                width: 100%;
-                max-width: 1000px;
-                height: auto;
-            }
-        }
+/* Címek, szövegek */
+.text2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 20px;
+}
 
-        .center img {
-            width: 90%;
-            max-width: 600px;
-            height: auto;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
+.text3 {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #ccc;
+}
 
-        .text2 {
-            text-align: center;
-            color: white;
-            font-size: 30px;
-            margin-top: 20px;
-        }
+.text {
+    margin: 20px;
+    font-size: 1.1rem;
+}
 
-        .text3 {
-            text-align: left;
-            margin-top: 20px;
-            color: white;
-            font-size: larger;
-            text-align: center;
-        }
+/* --- Játékok grid --- */
+.games {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    padding: 20px;
+}
 
-        @keyframes feluszas {
-            0% {
-                opacity: 0;
-                transform: translateY(100px);
-            }
+.game-card {
+    background: #1c1c1c;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* gomb mindig alul */
+    transition: transform 0.3s;
+    min-height: 420px; /* minden kártya azonos magasságú */
+}
 
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.game-card:hover {
+    transform: scale(1.03);
+}
 
-        .filter-container {
-            text-align: center;
-            margin: 20px;
-        }
+.game-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
 
-        #difficultyFilter {
-            padding: 8px;
-            font-size: 16px;
-        }
-    </style>
+.game-card h3 {
+    margin: 12px;
+    font-size: 1.3rem;
+    text-align: center;
+    flex-grow: 1; /* cím nyúlik, ha kell */
+}
 
+.game-card p {
+    margin: 0 12px;
+    text-align: center;
+    font-size: 1rem;
+    color: #ff9800;
+}
+
+.game-card form {
+    margin: 12px;
+    text-align: center;
+    margin-top: auto; /* mindig az aljára kerül */
+}
+
+/* Gomb stílus */
+.btn {
+    padding: 10px 16px;
+    background: #ff9800;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+.btn:hover {
+    background: #ffa726;
+}
+
+/* Reszponzív szövegek */
+@media (max-width: 600px) {
+    .text2 {
+        font-size: 1.6rem;
+    }
+
+    .text3 {
+        font-size: 1rem;
+    }
+}
+</style>  
 </head>
 
 <body>
@@ -93,42 +138,53 @@
             <a href="gyik.html">GYIK</a>
             <a href="velemenyek.html">VÉLEMÉNYEK</a>
             <a href="rolunk.html">RÓLUNK</a>
+            <a href="cart.php">🛒 KOSÁR</a>
         </nav>
     </header>
 
-    
     <div class="fejlec">
         <a id="kepLink" href="#">
-            <img id="headerImage" src="fejleclaptop.jpg" alt="Fejléc" width="500px" height="100px">
+            <img id="headerImage" src="fejleclaptop.jpg" alt="Fejléc">
         </a>
-
-
-    <div class="text2">
-        <b>JÁTÉKAINK</b>
-    </div>
-    <div class="text3">
-        <b><i>Válogass kedvedre játékaink közül. <br>Játssz egy jót!</i></b>
     </div>
 
-
-    <div class="text">
-        &nbsp;&nbsp;
-        <b><i><u>Legújabb játékaink:</u></i></b>
-    </div>
+    <div class="text2"><b>JÁTÉKAINK</b></div>
+    <div class="text3"><b><i>Válogass kedvedre játékaink közül.<br>Játssz egy jót!</i></b></div>
+    
 
     <div class="games">
-        <div class="center">
-            <a href="https://onlineszabaduloszobak.github.io/azelveszettorokseg/">
+        <!-- Első játék -->
+        <div class="game-card">
+            
                 <img src="jatekok_elveszett.jpg" alt="AZ ELVESZETT ÖRÖKSÉG">
-            </a>
+            <h3>AZ ELVESZETT ÖRÖKSÉG</h3>
+            <p>Ár: 3990 Ft</p>
+            <form method="post" action="cart.php">
+                <input type="hidden" name="id" value="g01">
+                <input type="hidden" name="name" value="AZ ELVESZETT ÖRÖKSÉG">
+                <input type="hidden" name="price" value="3990"> <br>
+                <button type="submit" class="btn">Kosárba</button>
+            </form>
         </div>
 
-        <div class="center">
-            <a href="#">
+        <!-- Második játék -->
+        <div class="game-card">
+            
                 <img src="jatekok_hamarosan0307.jpg" alt="HAMAROSAN">
-            </a>
+            
+            <h3>Hamarosan...</h3>
+            <p>Ár: 1990 Ft</p>
+            <form method="post" action="cart.php">
+                <input type="hidden" name="id" value="g02">
+                <input type="hidden" name="name" value="Hamarosan...">
+                <input type="hidden" name="price" value="1990"> <br>
+                <button type="submit" class="btn">Kosárba</button>
+            </form>
         </div>
-    </div>
+
+
+  
+</div>
 
 </body>
 
