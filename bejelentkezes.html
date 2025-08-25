@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bejelentkezés</title>
+    <link rel="stylesheet" href="menusor.css">
+    <link rel="stylesheet" href="animacio.css">
+    <link rel="stylesheet" href="pushup.css">
+    <link rel="stylesheet" href="hatter.css">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: #fff;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: calc(100vh - 80px);
+            padding: 20px;
+        }
+
+        form {
+            background-color: #222;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        button {
+            background-color: #ff9800;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ffa726;
+        }
+
+        a {
+            color: #ff9800;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .reg-link {
+            text-align: left;
+        }
+
+        @media (max-width: 480px) {
+            form {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo menu"> <a href="index.html">ONLINE SZABADULÓSZOBÁK</a></div>
+        <nav class="menu" id="mainMenu">
+            <a href="jatekaink.html">JÁTÉKAINK</a>
+            <a href="gyik.html">GYIK</a>
+            <a href="velemenyek.html">VÉLEMÉNYEK</a>
+            <a href="rolunk.html">RÓLUNK</a>
+            <!-- Dinamikus menüpontok -->
+            <a href="cart.html" id="menuKosar" style="display: none;">🛒 KOSÁR</a>
+            <a href="vasarlasok.html" id="menuVasarlasok" style="display: none; color: yellow; font-weight: bold;">VÁSÁRLÁSOK</a>
+            
+        </nav>
+    </header>
+
+    <div class="container">
+        <form action="bejelentkezes.php" method="post">
+            <h2>Bejelentkezés</h2>
+            <label for="email">Email cím:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="jelszo">Jelszó:</label>
+            <input type="password" id="jelszo" name="jelszo" required>
+
+            <button type="submit">Bejelentkezés</button><br><br>
+
+            <div class="reg-link">
+                <label><a href="regisztracio.html">Nincs fiókja? Regisztráljon itt.</a></label>
+            </div>
+        </form>
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const email = localStorage.getItem("user_email");
+        const menuKosar = document.getElementById("menuKosar");
+        const menuVasarlasok = document.getElementById("menuVasarlasok");
+        const menuAuth = document.getElementById("menuAuth");
+
+        if (email) {
+            menuKosar.style.display = "inline-block";
+            menuAuth.textContent = "Kijelentkezés";
+            menuAuth.href = "#";
+            menuAuth.addEventListener("click", (e) => {
+                e.preventDefault();
+                localStorage.removeItem("user_email");
+                location.reload();
+            });
+
+            if (email === "kristof.orosz.11@gmail.com") {
+                menuVasarlasok.style.display = "inline-block";
+            }
+        } else {
+            menuAuth.textContent = "BEJELENTKEZÉS";
+            menuAuth.href = "bejelentkezes.html";
+        }
+    });
+    </script>
+</body>
+</html>

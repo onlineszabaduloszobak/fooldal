@@ -59,12 +59,17 @@
 <body>
     <header class="header">
         <div class="logo menu"> <a href="index.html">ONLINE SZABADULÓSZOBÁK</a></div>
-        <nav class="menu">
-            <a href="jatekaink.html">JÁTÉKAINK</a>
-            <a href="gyik.html">GYIK</a>
-            <a href="velemenyek.html">VÉLEMÉNYEK</a>
-            <a href="rolunk.html">RÓLUNK</a>
-        </nav>
+    <nav class="menu" id="mainMenu">
+  <a href="jatekaink.html">JÁTÉKAINK</a>
+  <a href="gyik.html">GYIK</a>
+  <a href="velemenyek.html">VÉLEMÉNYEK</a>
+  <a href="rolunk.html">RÓLUNK</a>
+  <!-- Dinamikus menüpontok -->
+  <a href="cart.html" id="menuKosar" style="display: none;">🛒 KOSÁR</a>
+  <a href="vasarlasok.html" id="menuVasarlasok" style="display: none; color: yellow; font-weight: bold;">VÁSÁRLÁSOK</a>
+  <a href="#" id="menuAuth" style="color: green; font-weight: bold;">BEJELENTKEZÉS</a>
+</nav>
+
     </header>
 
     <div id="uzenet"></div>
@@ -131,6 +136,34 @@
         Online, Bármikor, Egy kávé áráért <br><br>
         TE KI TUDSZ SZABADULNI? TEDD PRÓBÁRA MAGAD! <br><br>
     </div>
-</body>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const email = localStorage.getItem("user_email");
+    const menuKosar = document.getElementById("menuKosar");
+    const menuVasarlasok = document.getElementById("menuVasarlasok");
+    const menuAuth = document.getElementById("menuAuth");
+
+    if (email) {
+        // Ha be van jelentkezve
+        menuKosar.style.display = "inline-block";
+        menuAuth.textContent = "Kijelentkezés";
+        menuAuth.href = "#";
+        menuAuth.addEventListener("click", (e) => {
+            e.preventDefault();
+            localStorage.removeItem("user_email");
+            location.reload();
+        });
+
+        if (email === "kristof.orosz.11@gmail.com") {
+            menuVasarlasok.style.display = "inline-block";
+        }
+    } else {
+        // Ha nincs bejelentkezve
+        menuAuth.textContent = "BEJELENTKEZÉS";
+        menuAuth.href = "bejelentkezes.html";
+    }
+});
+</script>
+</body>
 </html>
